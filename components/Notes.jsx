@@ -7,16 +7,15 @@ import { TodosContext } from '../context/store';
 const Notes = () => {
     const {
         state: { todos },
-        addTodo,
+        addTodos,
     } = useContext(TodosContext);
     const onType = (e) => {
         if (e.key === 'Enter' || e.keyCode === 13) {
-            dispatch(
-                addTodo({
-                    text: e.target.value,
-                    done: false,
-                    id: Math.random() * 1000,
-                }));
+            addTodos({
+                text: e.target.value,
+                done: false,
+                id: Math.random() * 1000,
+            });
             e.target.value = '';
         }
     };
